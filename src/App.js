@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
 
 const App = () => {
-  const [inputValue, setInputValue] = useState('');
+  const [items, setItems] = useState(['Item 1', 'Item 2', 'Item 3']);
 
-  const handleChange = (e) => setInputValue(e.target.value);
+  const addItem = () => setItems(eskiDeger=> [...eskiDeger, `Item ${eskiDeger.length + 1}`]);
 
   return (
     <div>
-      <input type="text" value={inputValue} onChange={handleChange} />
-      <p>Girilen değer: {inputValue}</p>
+      <ul>
+        {items.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
+
+      <button onClick={addItem}>Add Item</button>
     </div>
   );
 };
