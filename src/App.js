@@ -1,18 +1,16 @@
 import React, { useState } from 'react';
 
 const App = () => {
+  const [inputValue, setInputValue] = useState('');
 
-  const [isToggled, setToggle] = useState(false);
-
-  const toggle = () => setToggle(eskiDeger => !eskiDeger);
+  const handleChange = (e) => setInputValue(e.target.value);
 
   return (
     <div>
-      <p>{isToggled ? 'ON' : 'OFF'}</p>
-      <button onClick={toggle}>Aç/Kapa</button>
+      <input type="text" value={inputValue} onChange={handleChange} />
+      <p>Girilen değer: {inputValue}</p>
     </div>
   );
-
 };
 
 export default App;
