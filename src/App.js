@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 
 const App = () => {
-  const [inputValue, setInputValue] = useState('');
+  const [color, setColor] = useState('red');
 
-  const handleChange = (e) => setInputValue(e.target.value);
+  const changeColor = (newColor) => setColor(newColor);
 
   return (
     <div>
-      <input type="text" value={inputValue} onChange={handleChange} />
-      <p>Girilen değer: {inputValue}</p>
+      <p style={{ color, background: "lightyellow" }}>Seçilen Renk: {color}</p>
+      
+      <button onClick={() => changeColor('red')}>Red</button>
+      <button onClick={() => changeColor('green')}>Green</button>
+      <button onClick={() => changeColor('blue')}>Blue</button>
     </div>
   );
 };
